@@ -20,11 +20,21 @@ public class TennisCoach implements Coach{
     public TennisCoach() {
         System.out.println("Default Constructor");
     }
+//    setter method
 
+//    @Autowired
+//    public void setFortuneService(FortuneService fortuneService) {
+//        System.out.println("setter method");
+//        this.fortuneService = fortuneService;
+//    }
+
+
+    // Method Injectoin
     @Autowired
-    public void setFortuneService(FortuneService fortuneService) {
-        System.out.println("setter method");
-        this.fortuneService = fortuneService;
+    public void anyMethodName(FortuneService fortuneService)
+    {
+        System.out.println("any Method Name");
+        this.fortuneService=fortuneService;
     }
 
     @Override
