@@ -2,7 +2,7 @@ package org.example;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("happyFortuneService")
 public class HappyFortuneService implements FortuneService{
     @Override
     public String getFortune() {
