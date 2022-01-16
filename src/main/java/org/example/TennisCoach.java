@@ -2,9 +2,15 @@ package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component("tennis")
+@Scope("singleton")
+//@Scope("prototype")
 public class TennisCoach implements Coach{
 
     // Field Injection
@@ -32,6 +38,18 @@ public class TennisCoach implements Coach{
     @Override
     public String getDailyFortune() {
         return " Sad : "+fortuneService1.getFortune() +"\n Happy"+ fortuneService2.getFortune()+ "\n Random :"+ fortuneService3.getFortune();
+    }
+
+    @PostConstruct
+    public void initialization()
+    {
+        System.out.println("Postconstruct : After Bean Creation");
+    }
+
+    @PreDestroy
+    public void beforeDestory()
+    {
+        System.out.println("PostDestroy : Before Bean Destroy");
     }
 
 
